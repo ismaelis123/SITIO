@@ -1,0 +1,26 @@
+/* Estilos para pantallas pequeñas (teléfonos) */
+@media screen and (max-width: 600px) {
+    /* Ajusta los estilos según tus necesidades */
+    body {
+        font-size: 16px;
+    }
+    /* Otros estilos específicos para dispositivos móviles */
+}
+
+/* Estilos para pantallas medianas (tabletas) */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    /* Ajusta los estilos según tus necesidades */
+    body {
+        font-size: 18px;
+    }
+    /* Otros estilos específicos para tabletas */
+}
+
+/* Estilos para pantallas grandes (computadoras) */
+@media screen and (min-width: 1025px) {
+    /* Ajusta los estilos según tus necesidades */
+    body {
+        font-size: 20px;
+    }
+    /* Otros estilos específicos para computadoras */
+}

@@ -1,0 +1,343 @@
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca</title>
+    <style>
+         body {
+            background-image: url("imagenes/9396112_3023.jpg.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #4023e7;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 0 20px;
+        }
+        header img {  
+            max-width: 100px;
+            max-height: 100px;
+        }
+        header h1, header h2 {
+            margin: 5px 0;
+        }
+        header form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        header input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            border-radius: 5px;
+            border: 1px solid #ccc; 
+        }
+        header button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        .etiquetas-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .etiqueta {
+            padding: 5px 10px;
+            background-color: #023a75;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .panels-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .panel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: calc(33.33% - 20px);
+            max-width: 300px;
+            height: 200px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            flex-direction: column;
+        }
+        .panel:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+        .panel img {
+            max-width: 150px;
+            max-height: 150px;
+        }
+        .panel h2 {
+            color: black;
+            margin: 10px 0 0 0;
+        }
+        .menu-container {
+            width: 200px;
+            margin-top: 20px;
+        }
+        .menu-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .menu-buttons a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #62e4c8;
+            font-size: 14px;
+        }
+    </style>
+    </head>
+
+    <body>
+        <style>
+            /* Add some basic styling to make it look like a panel */
+            #login {
+              background-color: #f9f9f9;
+              color: #1d1d1f;
+              padding: 20px;
+              border: 1px solid #ccc;
+              border-radius: 10px;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+              width: 300px; /* adjust the width to your liking */
+              margin: 40px auto; /* center the panel */
+            }
+          
+            /* Add some space between the form elements */
+            #login-form label {
+              display: block;
+              margin-bottom: 10px;
+              color: #1d1d1f;
+            }
+          
+            #login-form input[type="text"], #login-form input[type="password"] {
+              width: 100%;
+              padding: 10px;
+              margin-bottom: 20px;
+              border: 1px solid #ccc;
+              
+            }
+          
+            #login-form input[type="submit"] {
+              background-color: #4CAF50;
+              color: #fff;
+              color: #1d1d1f;
+              padding: 10px 20px;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+            }
+          
+            #login-form input[type="submit"]:hover {
+              background-color: #3e8e41;
+            }
+          </style>
+          
+          <section id="login">
+            <h2>Iniciar sesión</h2>
+            <form id="login-form">
+              <label for="username">Nombre de usuario:</label>
+              <input type="text" id="username" name="username" value="Ismael"><br><br>
+              <label for="password">Contraseña:</label>
+              <input type="password" id="password" name="password" value="23"><br><br>
+              <input type="submit" value="Iniciar sesión">
+            </form>
+          </section>
+
+          <main id="main-content" style="display: none;"> 
+            <header>
+                <img src="imagenes/descarga (1).png" alt="Logo de la Biblioteca">
+                <h1>SOMOS BIBLIOTEC</h1>
+                <h2>BIENVENIDO, ESPERO QUE ENCUENTRES EL LIBRO QUE SEA DE TU AGRADO</h2>
+                <form action="#" method="GET">
+                    <input type="text" name="search" id="search" placeholder="Buscar libros...">
+                    <button type="button" onclick="buscarLibro()">Buscar</button>
+                    <div class="etiquetas-container">
+                        <span class="etiqueta" onclick="setSearch('Matemáticas')">MATEMÁTICAS</span>
+                        <span class="etiqueta" onclick="setSearch('Manual para estudiantes')">MANUAL DEL ESTUDIANTE</span>
+                        <span class="etiqueta" onclick="setSearch('Lengua y literatura')">LENGUA Y LITERATURA</span>
+                        <span class="etiqueta" onclick="setSearch('Medicina')">MEDICINA</span>
+                        <span class="etiqueta" onclick="setSearch('Agroindustria')">AGROINDUSTRIA</span>
+                        <span class="etiqueta" onclick="setSearch('Física')">FISICA</span>
+                        <span class="etiqueta" onclick="setSearch('Inglés')">INGLÉS</span>
+                        <span class="etiqueta" onclick="setSearch('Ciencias Naturales')">CiENCIAS NATURALES</span>
+                        <span class="etiqueta" onclick="setSearch('Biología')">BIOLOGIA</span>
+                        <span class="etiqueta" onclick="setSearch('Geografía')">GEOGRAFIA</span>
+                    </div>  
+        
+                    
+                </form>
+            </header>
+            <div class="panels-container">
+                <div class="panel" onclick="window.location.href='https://nicaraguaeduca.mined.gob.ni/wp-content/uploads/2022/01/LIBRO-Matematica-5to.pdf'">
+                    <img src="imagenes/logo-mined.png" alt="Portada del Libro de matemáticas">
+                    <h2>Libro de matemáticas</h2>
+                </div>
+                <div class="panel" onclick="window.location.href='https://anagmendez.net/agmonline/Docs/manual/manual-estudiantes.pdf'">
+                    <img src="imagenes/INATECLogo.png" alt="Portada del Manual para estudiantes">
+                    <h2>Manual para estudiantes</h2>
+                </div>
+                <div class="panel" onclick="window.location.href='https://nicaraguaeduca.mined.gob.ni/wp-content/uploads/2021/01/LYL-5to-GRADO.pdf'">
+                    <img src="imagenes/logo-mined.png" alt="Portada del Libro de Lengua y literatura">
+                    <h2>Lengua y literatura</h2>
+                </div>
+                <div class="panel" onclick="window.location.href='https://www.soymedicina.com/libros-de-medicina/'">
+                    <img src="imagenes/marcaUNAN.png" alt="Portada de los libros de medicina">
+                    <h2>Libros de medicina</h2>
+                </div>
+                <div class="panel" onclick="window.location.href='https://www.unan.edu.ni/wp-content/uploads/2019/07/unan-mangua-farem-chontales-agroindustrial.pdf'">
+                    <img src="imagenes/marcaUNAN.png" alt="Portada del Libro de agroindustria">
+                    <h2>Agroindustria</h2>
+                </div>
+                <div class="panel" onclick="window.location.href='https://example.com/libro-fisica'">
+                    <img src="imagenes/logo-mined.png" alt="Portada del Libro de física">
+                    <h2>Libro de física</h2>
+                </div>
+                <div class="panel" onclick="window.location.href='https://nicaraguaeduca.mined.gob.ni/wp-content/uploads/2021/02/LIngles10mo_unlocked.pdf'">
+                    <img src="imagenes/logo-mined.png" alt="Portada del Libro de inglés">
+                    <h2>Libro de inglés 10</h2>
+                </div>
+                <div class="panel" onclick="window.location.href='https://nicaraguaeduca.mined.gob.ni/wp-content/uploads/2021/02/Lcienciasnaturales8vo_unlocked.pdf'">
+                    <img src="imagenes/logo-mined.png" alt="Portada del Libro de ciencias naturales">
+                    <h2>Libro de ciencias naturales 8</h2>
+                </div>
+                <div class="panel" onclick="window.location.href='https://nicaraguaeduca.mined.gob.ni/wp-content/uploads/2020/03/Lcienciasnaturales9no_unlocked.pdf'">
+                    <img src="imagenes/logo-mined.png" alt="Portada del Libro de biología">
+                    <h2>Libro de biología 9</h2>
+                </div>
+                <div class="panel" onclick="window.location.href='https://nicaraguaeduca.mined.gob.ni/wp-content/uploads/2021/03/LEstudiosociales10mo_unlocked.pdf'">
+                    <img src="imagenes/logo-mined.png" alt="Portada del Libro de geografía">
+                    <h2>Libro de geografía 9</h2>
+                </div>
+            </div>
+            <div class="menu-container">
+                <div class="menu-buttons">
+                    <a href="mailto:i37993716@gmail.com">Gmail</a>
+                    <a href="https://api.whatsapp.com/send?phone=50589262526">WhatsApp</a>
+                </div>
+            </div>
+            <footer>
+                <p>&copy; 2024 Biblioteca. Todos los derechos reservados.</p>
+            </footer>
+            <script>
+                const libros = [
+                    { id: 1, titulo: "Libro de matemáticas", url: "https://nicaraguaeduca.mined.gob.ni/wp-content/uploads/2022/01/LIBRO-Matematica-5to.pdf", imagen: "imagenes/logo-mined.png" },
+                    { id: 2, titulo: "Manual para estudiantes", url: "https://anagmendez.net/agmonline/Docs/manual/manual-estudiantes.pdf", imagen: "imagenes/INATECLogo.png" },
+                    { id: 3, titulo: "Lengua y literatura", url: "https://nicaraguaeduca.mined.gob.ni/wp-content/uploads/2021/01/LYL-5to-GRADO.pdf", imagen: "imagenes/logo-mined.png" },
+                    { id: 4, titulo: "Libros de medicina", url: "https://www.soymedicina.com/libros-de-medicina/", imagen: "imagenes/marcaUNAN.png" },
+                    { id: 5, titulo: "Agroindustria", url: "https://www.unan.edu.ni/wp-content/uploads/2019/07/unan-mangua-farem-chontales-agroindustrial.pdf", imagen: "imagenes/marcaUNAN.png" },
+                    { id: 6, titulo: "Libro de física", url: "https://example.com/libro-fisica", imagen: "imagenes/logo-mined.png" },
+                    { id: 7, titulo: "Libro de inglés 10", url: "https://nicaraguaeduca.mined.gob.ni/wp-content/uploads/2021/02/LIngles10mo_unlocked.pdf", imagen: "imagenes/logo-mined.png" },
+                    { id: 8, titulo: "Libro de ciencias naturales 8", url: "https://nicaraguaeduca.mined.gob.ni/wp-content/uploads/2021/02/Lcienciasnaturales8vo_unlocked.pdf", imagen: "imagenes/logo-mined.png" },
+                    { id: 9, titulo: "Libro de biología 9", url: "https://nicaraguaeduca.mined.gob.ni/wp-content/uploads/2020/03/Lcienciasnaturales9no_unlocked.pdf", imagen: "imagenes/logo-mined.png" },
+                    { id: 10, titulo: "Libro de geografía 9", url: "https://nicaraguaeduca.mined.gob.ni/wp-content/uploads/2021/03/LEstudiosociales10mo_unlocked.pdf", imagen: "imagenes/logo-mined.png" }
+                ];
+        
+                function buscarLibro() {
+                    const input = document.getElementById("search").value.toLowerCase();
+                    const resultados = libros.filter(libro => libro.titulo.toLowerCase().includes(input));
+                    mostrarResultados(resultados);
+                }
+        
+                function mostrarResultados(resultados) {
+                    const panelsContainer = document.querySelector(".panels-container");
+                    panelsContainer.innerHTML = ""; // Limpiar los resultados anteriores
+        
+                    resultados.forEach(libro => {
+                        const panel = document.createElement("div");
+                        panel.classList.add("panel");
+                        panel.onclick = () => window.location.href = libro.url;
+        
+                        const imagen = document.createElement("img");
+                        imagen.src = libro.imagen;
+                        imagen.alt = `Portada de ${libro.titulo}`;
+        
+                        const titulo = document.createElement("h2");
+                        titulo.textContent = libro.titulo;
+        
+                        panel.appendChild(imagen);
+                        panel.appendChild(titulo);
+                        panelsContainer.appendChild(panel);
+                    });
+                }
+        
+                function setSearch(text) {
+                    document.getElementById("search").value = text;
+                    buscarLibro();
+                }
+        
+                document.getElementById("search").addEventListener("keyup", function(event) {
+                    if (event.keyCode === 13) { // 13 es el código de tecla Enter
+                        event.preventDefault();
+                        buscarLibro();
+                    }
+                });
+            </script>
+             <script>
+                const loginForm = document.getElementById('login-form');
+                const mainContent = document.getElementById('main-content');
+                const loginSection = document.getElementById('login');
+            
+                loginForm.addEventListener('submit', (e) => {
+                  e.preventDefault();
+                  // Verificar credenciales de inicio de sesión
+                  if (document.getElementById('username').value === 'Ismael' && document.getElementById('password').value === '23') {
+                    mainContent.style.display = 'block';
+                    loginSection.style.display = 'none'; // Ocultar la sección de inicio de sesión
+                  } else {
+                    alert('Credenciales incorrectas');
+                  }
+                });
+              </script>
+
+
+
+
+          </main>
+
+
+
+    </body>
